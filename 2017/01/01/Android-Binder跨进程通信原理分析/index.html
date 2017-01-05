@@ -84,12 +84,29 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Yinhuan Blog">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="出发前预备子弹我们知道进程之间，虚拟地址不同，是不能直接通信的，这是一种保护机制。打开任务管理器，查看一下N多的进程，试想一下如果这些进程直接通信会带来什么后果？
+而用户空间可以通过System calls（系统回调）与内核空间通信的，如果在内核空间中有一个模块，能够完成数据的转发，那么是不是两个进程就可以通信了呢？如下图：
+
+上面提到一些用户空间、内核空间的概念，用户空间也能大概猜到是什么东西，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android Binder跨进程通信原理分析">
+<meta property="og:url" content="http://yoursite.com/2017/01/01/Android-Binder跨进程通信原理分析/index.html">
 <meta property="og:site_name" content="Yinhuan Blog">
+<meta property="og:description" content="出发前预备子弹我们知道进程之间，虚拟地址不同，是不能直接通信的，这是一种保护机制。打开任务管理器，查看一下N多的进程，试想一下如果这些进程直接通信会带来什么后果？
+而用户空间可以通过System calls（系统回调）与内核空间通信的，如果在内核空间中有一个模块，能够完成数据的转发，那么是不是两个进程就可以通信了呢？如下图：
+
+上面提到一些用户空间、内核空间的概念，用户空间也能大概猜到是什么东西，">
+<meta property="og:image" content="http://img.blog.csdn.net/20161127155718976">
+<meta property="og:image" content="http://img.blog.csdn.net/20161127145544347">
+<meta property="og:image" content="http://img.blog.csdn.net/20161127145644223">
+<meta property="og:updated_time" content="2017-01-05T09:29:10.225Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Yinhuan Blog">
+<meta name="twitter:title" content="Android Binder跨进程通信原理分析">
+<meta name="twitter:description" content="出发前预备子弹我们知道进程之间，虚拟地址不同，是不能直接通信的，这是一种保护机制。打开任务管理器，查看一下N多的进程，试想一下如果这些进程直接通信会带来什么后果？
+而用户空间可以通过System calls（系统回调）与内核空间通信的，如果在内核空间中有一个模块，能够完成数据的转发，那么是不是两个进程就可以通信了呢？如下图：
+
+上面提到一些用户空间、内核空间的概念，用户空间也能大概猜到是什么东西，">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20161127155718976">
 
 
 
@@ -110,9 +127,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/01/01/Android-Binder跨进程通信原理分析/"/>
 
-  <title> Yinhuan Blog </title>
+  <title> Android Binder跨进程通信原理分析 | Yinhuan Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -133,9 +150,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -232,9 +247,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
   
@@ -254,121 +269,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2017/01/02/unrequited-love-yaoyao /" itemprop="url">
-                  暗恋YaoYao的那些日子
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-01-02T20:13:14+08:00" content="2017-01-02">
-              2017-01-02
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>上天的眷顾，让我在大学最后的时光遇到了她。</p>
-<p>回到学校后，我定居到了图书馆的四楼。为了3月份的校园春招而努力着。每天支撑着我前进的，是我对计算机编程的热爱和对未来的憧憬。我要去和优秀的人一起工作。Yinhuan，加油！</p>
-<p>就在那段时间， 我发现了两个好神奇的妹纸，每天都坐我旁边的。于是我偷瞄了她们，咦，还很漂亮的。瞬间点亮了我的心情。</p>
-<p>后来我注意到了她，每天看着她认真写作业的样子，我心动了，从荷尔蒙到灵魂都心动了。</p>
-<p>咔嚓，我偷拍了她。如果是我女朋友多好呀！</p>
-<p>好神奇，在那段时间，我去上课的路上都能偶遇她，我真没有算好时间的，缘分呐！</p>
-<p>终于有一天晚上，她一个人来图书馆，我忍不住了，那么好的机会。我要去认识她。我要告诉她，我很喜欢她。如果她有男朋友了，我会很伤心的。那就等分手，或者，默默的祝福她。<br>“天涯何处无芳草，何必单恋一枝花”，可是，这枝花是很珍贵的品种，值得我去珍惜。</p>
-<p>心里为自己加油，很快到了9点，女神开始收拾东西回宿舍了，然后我还呆呆的看着电脑。我整颗心悬在空中，我是多么想鼓起勇气上去问她的微信啊。默默地看着她离开的背影。我心里很自责，回到宿舍，单曲循环听着周杰伦的《开不了口》，唉，这首歌写的简直就是我啊。我想去听一次杰伦的演唱会，如果还能听到《开不了口》，我想我会哭的很惨。</p>
-<p>之后的一段时间，我依旧每天学习着喜欢的技术，依旧坐在那个位置，因为我知道我的女神晚上一定会来的，那样又可以看到她了。</p>
-<p>可能是荷尔蒙吧，我每天的学习效率还是很高的，真的每天都很忙啊，但我要坚持下去，我要通过3月份的校园春招进入名企实习，然后在9月份的校园秋招时，充满自信的投简历给鹅厂，去深圳工作。<br>没有名校光环，我付出的注定要多。整个大学我都是在实验室，图书馆中度过了。我大二暑假出去实习的原因之一是想通过这个实习经历来多多少少的弥补非名校出身。</p>
-<p>每天女神和她那个同学一起来自习，我不想她们两个人的时候我还上去搭讪，这样她那个同学会很尴尬。</p>
-<p>终于有一天，她又一个人来图书馆了。喔耶，机会又来了，我很开心。那天晚上我鼓起很大的勇气，下了很大的决心。结果呢？看着她离开，我犹豫了一下，然后追下楼，妹纸在饮水机旁打水。吓了我一跳，原来还没走远啊，我假装回头看后面有没有人，我不知道她有没有注意到我，如果注意到了我的异常举动，可能会觉的这个小男生好奇怪吧。<br>等我再次回头，她已经打完水要走了，然后我跟在她背后，出了图书馆的大门。又怂了，还是下次吧，下午打完球，还没洗澡全身汗臭的就跑来图书馆，嗯，这次没准备好，还有机会的。我就这样安慰着自己。她往左边走了，我往右边走。又一次错过了。</p>
-<p>回到宿舍我在想，为什么我不敢上去和她说话呢？越在乎一个人，就越难开口吧。<br>我长那么帅，和她在颜值上也很搭配啊。那天晚上我睡觉前在反思，不行，我不能这样，至少联系方式一定要留下的。即使我现在大三很忙没时间去追，但联系方式总要留下吧，要不然从学校滚蛋了就真的没机会了，那么以后会后悔吗？会！</p>
-<p>有一天，无比耿直的我想到了一招，和女神借支笔，不就说上话了吗，微信可以熟悉了慢慢来嘛，那天晚上，我又下了很大的决心，终于鼓起勇气，同学，能借支笔吗？<br>这妹纸好高冷，眼睛看都没看我，只是答应了一声可以。然后和她旁边的同学拿了一支笔给我。<br>话说，我那天晚上真的是没带笔，然后我又要画程序的调用链图。虽然这个计策已经酝酿了许多天，但一直没付出行动。<br>唉！上天待我不薄，刚好我那天学习很有灵感，攻克了技术难点，理清了思路，需要画图总结一下。所以就开口了。但还是下了很大决心。<br>等到9点多，她们要回宿舍了，可是我没画完啊，然后，女神和我说，同学，你明天给我们就好。我答应了一声，然后又傻逼一样看着电脑屏幕，难道电脑屏幕有美女好看吗？<br>喔，我觉的女神的声音也很好听，而且她好喜欢笑，哈哈哈。虽然刚开始这妹纸好高冷，看都没看我，但并没有减少她在我心中的印象分，反而增加了，我就喜欢有挑战的。因为我是一只狼。</p>
-<p>很快到期末复习了，我通过好朋友拿到了女神的微信号，我和女神不是同一个系的，我不得不感叹我朋友圈的强大。搜索了她的微信号，哈哈，这妹纸用自己的照片当头像，我更喜欢了。点开她的头像，哇！原来女神不戴眼镜长这样啊，加分！</p>
-<p>但迟迟没加好友。我觉的我应该当面和她要。</p>
-<p>每一次期末，图书馆的座位都是爆满，然后我坐在了女神的旁边的旁边的旁边的旁边，机会又来了，我今晚一定要上去和她说话，在那里默默关注她。看到她回宿舍的时候，我又追了下去，唉！这次我又在背后跟着她，一直到一饭门口的水池，看着她的背影。我还有机会，现在跑过去还有机会，我心里一直对自己这样说，渐渐地，那背影消失了。<br>那天晚上回到宿舍，我特意去查了她的考试时间，发现她后天要考高级英语。那么，她明天应该会去图书馆复习吧。哈哈，我就带着期待睡觉了。<br>第二天，我高高兴兴，蹦蹦跳跳的去图书馆背题了，妹纸果然在那里，好开心。她竟然穿校服裤，我好喜欢看她穿校服裤。然后，我晚上出去吃饭回来，看到她还扎起了头发，嘿哈嘿哈，真好看。<br>我在等她回宿舍，然后追上去。想象的是非常美好的。她终于起身离开了，我马上跑去上个厕所，放松一下紧张的心情，然后飞速下楼，看到她走出了图书馆。追上去啊，犹豫了。接着是放弃，唉！又一次失败了。<br>讲真，那晚上，我鼻子好酸，哇的一下可能就要哭出来了。本来她一个人来图书馆的次数就少，我还一次又一次的错过。<br>由于满脑子想的都是她，没心思复习，回到宿舍也就洗洗睡了。喔，明天还要考试的。于是调了早上6点钟的闹钟起床复习。</p>
-<p>未完……</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/01/01/Android-Binder跨进程通信原理分析/" itemprop="url">
-                  Android Binder跨进程通信原理分析
-                </a>
+                Android Binder跨进程通信原理分析
               
             
           </h1>
@@ -408,9 +309,7 @@
       
 
       
-        
-          
-            <h2 id="出发前预备子弹"><a href="#出发前预备子弹" class="headerlink" title="出发前预备子弹"></a><strong>出发前预备子弹</strong></h2><p>我们知道进程之间，虚拟地址不同，是不能直接通信的，这是一种保护机制。打开任务管理器，查看一下N多的进程，试想一下如果这些进程直接通信会带来什么后果？</p>
+        <h2 id="出发前预备子弹"><a href="#出发前预备子弹" class="headerlink" title="出发前预备子弹"></a><strong>出发前预备子弹</strong></h2><p>我们知道进程之间，虚拟地址不同，是不能直接通信的，这是一种保护机制。打开任务管理器，查看一下N多的进程，试想一下如果这些进程直接通信会带来什么后果？</p>
 <p>而用户空间可以通过System calls（系统回调）与内核空间通信的，如果在内核空间中有一个模块，能够完成数据的转发，那么是不是两个进程就可以通信了呢？如下图：</p>
 <p><img src="http://img.blog.csdn.net/20161127155718976" alt="内核转发"></p>
 <p>上面提到一些用户空间、内核空间的概念，用户空间也能大概猜到是什么东西，而内核空间，就知道它是很底层的东西好了。而模块呢，可以简单的理解为实现一个功能的程序或一个硬件电路等，比如玩单片机的时候，会有红外线模块，蓝牙模块，wifi模块等。这些概念的东西搜索一下百科知道就好。</p>
@@ -441,16 +340,20 @@
 <p>关于用户空间和内核空间，可以阅读阮一峰老师的文章：<a href="http://www.ruanyifeng.com/blog/2016/12/user_space_vs_kernel_space.html" target="_blank" rel="external">User space 与 Kernel space</a></p>
 <p>全文完毕！</p>
 
-          
+      
+    </div>
+
+    <div>
+      
         
+
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
       
     </div>
 
@@ -458,121 +361,36 @@
       
 
       
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
+              <a href="/2016/10/05/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
+              </a>
             
-              
-                
-                <a class="post-title-link" href="/2016/10/05/hello-world/" itemprop="url">
-                  Hello World
-                </a>
-              
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
             
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-05T01:43:00+08:00" content="2016-10-05">
-              2016-10-05
-            </time>
-          </span>
-
-          
-
-          
+              <a href="/2017/01/02/unrequited-love-yaoyao /" rel="prev" title="暗恋YaoYao的那些日子">
+                暗恋YaoYao的那些日子 <i class="fa fa-chevron-right"></i>
+              </a>
             
-          
-
-          
-
-          
-          
-
-          
+          </div>
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -580,6 +398,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -599,8 +421,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar.png"
@@ -674,6 +505,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#出发前预备子弹"><span class="nav-number">1.</span> <span class="nav-text">出发前预备子弹</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Binder驱动"><span class="nav-number">2.</span> <span class="nav-text">Binder驱动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Binder跨进程通信模型"><span class="nav-number">3.</span> <span class="nav-text">Binder跨进程通信模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Binder通信原理"><span class="nav-number">4.</span> <span class="nav-text">Binder通信原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -777,6 +619,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
