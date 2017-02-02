@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="计算机网络," />
 
 
 
@@ -84,22 +84,16 @@
 
 
 
-<meta name="description" content="你好呀，我是 Yinhuan。一个有代码洁癖的 Android 开发者。
-现在的坐标是广州的郊区，毕业后会留在广州工作生活，或者去深圳。
-最近在冲刺复习的同时，也在整理自己在大学期间写的作品。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="about">
-<meta property="og:url" content="http://yoursite.com/about/index.html">
+<meta name="description" content="建立连接的过程是利用客户服务器模式，假设主机A为客户端，主机B为服务器端。（1）TCP的三次握手过程：主机A向B发送连接请求；主机B对收到的主机A的报文段进行确认；主机A再次对主机B的确认进行确认。（2）采用三次握手是为了防止失效的连接请求报文段突然又传送到主机B，因而产生错误。失效的连接请求报文段是指：主机A发出的连接请求没有收到主机B的确认，于是经过一段时间后，主机A又重新向主机B发送连接请求">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TCP的三次握手过程？为什么会采用三次握手，若采用二次握手可以吗？">
+<meta property="og:url" content="http://yoursite.com/2017/02/02/TCP的三次握手过程？为什么会采用三次握手，若采用二次握手可以吗？/index.html">
 <meta property="og:site_name" content="Yinhuan Blog">
-<meta property="og:description" content="你好呀，我是 Yinhuan。一个有代码洁癖的 Android 开发者。
-现在的坐标是广州的郊区，毕业后会留在广州工作生活，或者去深圳。
-最近在冲刺复习的同时，也在整理自己在大学期间写的作品。">
-<meta property="og:updated_time" content="2017-01-13T11:17:24.461Z">
+<meta property="og:description" content="建立连接的过程是利用客户服务器模式，假设主机A为客户端，主机B为服务器端。（1）TCP的三次握手过程：主机A向B发送连接请求；主机B对收到的主机A的报文段进行确认；主机A再次对主机B的确认进行确认。（2）采用三次握手是为了防止失效的连接请求报文段突然又传送到主机B，因而产生错误。失效的连接请求报文段是指：主机A发出的连接请求没有收到主机B的确认，于是经过一段时间后，主机A又重新向主机B发送连接请求">
+<meta property="og:updated_time" content="2017-02-02T05:26:01.140Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="about">
-<meta name="twitter:description" content="你好呀，我是 Yinhuan。一个有代码洁癖的 Android 开发者。
-现在的坐标是广州的郊区，毕业后会留在广州工作生活，或者去深圳。
-最近在冲刺复习的同时，也在整理自己在大学期间写的作品。">
+<meta name="twitter:title" content="TCP的三次握手过程？为什么会采用三次握手，若采用二次握手可以吗？">
+<meta name="twitter:description" content="建立连接的过程是利用客户服务器模式，假设主机A为客户端，主机B为服务器端。（1）TCP的三次握手过程：主机A向B发送连接请求；主机B对收到的主机A的报文段进行确认；主机A再次对主机B的确认进行确认。（2）采用三次握手是为了防止失效的连接请求报文段突然又传送到主机B，因而产生错误。失效的连接请求报文段是指：主机A发出的连接请求没有收到主机B的确认，于是经过一段时间后，主机A又重新向主机B发送连接请求">
 
 
 
@@ -120,15 +114,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/about/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/02/02/TCP的三次握手过程？为什么会采用三次握手，若采用二次握手可以吗？/"/>
 
-  <title>
-  
-
-  
-    about | Yinhuan Blog
-  
-</title>
+  <title> TCP的三次握手过程？为什么会采用三次握手，若采用二次握手可以吗？ | Yinhuan Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -149,7 +137,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -249,12 +237,151 @@
 
   <div id="posts" class="posts-expand">
     
-    
-      <p>你好呀，我是 Yinhuan。一个有代码洁癖的 Android 开发者。</p>
-<p>现在的坐标是广州的郊区，毕业后会留在广州工作生活，或者去深圳。</p>
-<p>最近在冲刺复习的同时，也在整理自己在大学期间写的作品。</p>
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                TCP的三次握手过程？为什么会采用三次握手，若采用二次握手可以吗？
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-02-02T13:21:42+08:00" content="2017-02-02">
+              2017-02-02
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/计算机网络/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机网络</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/02/02/TCP的三次握手过程？为什么会采用三次握手，若采用二次握手可以吗？/" class="leancloud_visitors" data-flag-title="TCP的三次握手过程？为什么会采用三次握手，若采用二次握手可以吗？">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>建立连接的过程是利用客户服务器模式，假设主机A为客户端，主机B为服务器端。<br>（1）TCP的三次握手过程：主机A向B发送连接请求；主机B对收到的主机A的报文段进行确认；主机A再次对主机B的确认进行确认。<br>（2）采用三次握手是为了防止失效的连接请求报文段突然又传送到主机B，因而产生错误。失效的连接请求报文段是指：主机A发出的连接请求没有收到主机B的确认，于是经过一段时间后，主机A又重新向主机B发送连接请求，且建立成功，顺序完成数据传输。考虑这样一种特殊情况，主机A第一次发送的连接请求并没有丢失，而是因为网络节点导致延迟达到主机B，主机B以为是主机A又发起的新连接，于是主机B同意连接，并向主机A发回确认，但是此时主机A根本不会理会，主机B就一直在等待主机A发送数据，导致主机B的资源浪费。<br>（3）采用两次握手不行，原因就是上面说的实效的连接请求的特殊情况。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/计算机网络/" rel="tag">#计算机网络</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/02/02/DNS域名系统，简单描述其工作原理/" rel="next" title="DNS域名系统，简单描述其工作原理">
+                <i class="fa fa-chevron-left"></i> DNS域名系统，简单描述其工作原理
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/02/02/了解交换机、路由器、网关的概念，并知道各自的用途/" rel="prev" title="了解交换机、路由器、网关的概念，并知道各自的用途">
+                了解交换机、路由器、网关的概念，并知道各自的用途 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -286,8 +413,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar.png"
@@ -357,6 +493,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -460,6 +607,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 

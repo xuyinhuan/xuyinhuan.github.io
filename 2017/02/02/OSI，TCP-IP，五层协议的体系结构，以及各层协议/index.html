@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="计算机网络," />
 
 
 
@@ -84,22 +84,16 @@
 
 
 
-<meta name="description" content="你好呀，我是 Yinhuan。一个有代码洁癖的 Android 开发者。
-现在的坐标是广州的郊区，毕业后会留在广州工作生活，或者去深圳。
-最近在冲刺复习的同时，也在整理自己在大学期间写的作品。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="about">
-<meta property="og:url" content="http://yoursite.com/about/index.html">
+<meta name="description" content="OSI分层 （7层）：物理层、数据链路层、网络层、传输层、会话层、表示层、应用层。TCP/IP分层（4层）：网络接口层、 网际层、运输层、 应用层。五层协议 （5层）：物理层、数据链路层、网络层、运输层、 应用层。每一层的协议如下：物理层：RJ45、CLOCK、IEEE802.3 （中继器，集线器）数据链路：PPP、FR、HDLC、VLAN、MAC （网桥，交换机）网络层：IP、ICMP、ARP、">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OSI，TCP/IP，五层协议的体系结构，以及各层协议">
+<meta property="og:url" content="http://yoursite.com/2017/02/02/OSI，TCP-IP，五层协议的体系结构，以及各层协议/index.html">
 <meta property="og:site_name" content="Yinhuan Blog">
-<meta property="og:description" content="你好呀，我是 Yinhuan。一个有代码洁癖的 Android 开发者。
-现在的坐标是广州的郊区，毕业后会留在广州工作生活，或者去深圳。
-最近在冲刺复习的同时，也在整理自己在大学期间写的作品。">
-<meta property="og:updated_time" content="2017-01-13T11:17:24.461Z">
+<meta property="og:description" content="OSI分层 （7层）：物理层、数据链路层、网络层、传输层、会话层、表示层、应用层。TCP/IP分层（4层）：网络接口层、 网际层、运输层、 应用层。五层协议 （5层）：物理层、数据链路层、网络层、运输层、 应用层。每一层的协议如下：物理层：RJ45、CLOCK、IEEE802.3 （中继器，集线器）数据链路：PPP、FR、HDLC、VLAN、MAC （网桥，交换机）网络层：IP、ICMP、ARP、">
+<meta property="og:updated_time" content="2017-02-02T05:13:32.519Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="about">
-<meta name="twitter:description" content="你好呀，我是 Yinhuan。一个有代码洁癖的 Android 开发者。
-现在的坐标是广州的郊区，毕业后会留在广州工作生活，或者去深圳。
-最近在冲刺复习的同时，也在整理自己在大学期间写的作品。">
+<meta name="twitter:title" content="OSI，TCP/IP，五层协议的体系结构，以及各层协议">
+<meta name="twitter:description" content="OSI分层 （7层）：物理层、数据链路层、网络层、传输层、会话层、表示层、应用层。TCP/IP分层（4层）：网络接口层、 网际层、运输层、 应用层。五层协议 （5层）：物理层、数据链路层、网络层、运输层、 应用层。每一层的协议如下：物理层：RJ45、CLOCK、IEEE802.3 （中继器，集线器）数据链路：PPP、FR、HDLC、VLAN、MAC （网桥，交换机）网络层：IP、ICMP、ARP、">
 
 
 
@@ -120,15 +114,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/about/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/02/02/OSI，TCP-IP，五层协议的体系结构，以及各层协议/"/>
 
-  <title>
-  
-
-  
-    about | Yinhuan Blog
-  
-</title>
+  <title> OSI，TCP/IP，五层协议的体系结构，以及各层协议 | Yinhuan Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -149,7 +137,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -249,12 +237,151 @@
 
   <div id="posts" class="posts-expand">
     
-    
-      <p>你好呀，我是 Yinhuan。一个有代码洁癖的 Android 开发者。</p>
-<p>现在的坐标是广州的郊区，毕业后会留在广州工作生活，或者去深圳。</p>
-<p>最近在冲刺复习的同时，也在整理自己在大学期间写的作品。</p>
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                OSI，TCP/IP，五层协议的体系结构，以及各层协议
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-02-02T13:12:26+08:00" content="2017-02-02">
+              2017-02-02
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/计算机网络/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机网络</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/02/02/OSI，TCP-IP，五层协议的体系结构，以及各层协议/" class="leancloud_visitors" data-flag-title="OSI，TCP/IP，五层协议的体系结构，以及各层协议">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>OSI分层 （7层）：物理层、数据链路层、网络层、传输层、会话层、表示层、应用层。<br>TCP/IP分层（4层）：网络接口层、 网际层、运输层、 应用层。<br>五层协议 （5层）：物理层、数据链路层、网络层、运输层、 应用层。<br>每一层的协议如下：<br>物理层：RJ45、CLOCK、IEEE802.3 （中继器，集线器）<br>数据链路：PPP、FR、HDLC、VLAN、MAC （网桥，交换机）<br>网络层：IP、ICMP、ARP、RARP、OSPF、IPX、RIP、IGRP、 （路由器）<br>传输层：TCP、UDP、SPX<br>会话层：NFS、SQL、NETBIOS、RPC<br>表示层：JPEG、MPEG、ASII<br>应用层：FTP、DNS、Telnet、SMTP、HTTP、WWW、NFS<br>每一层的作用如下：<br>物理层：通过媒介传输比特,确定机械及电气规范（比特Bit）<br>数据链路层：将比特组装成帧和点到点的传递（帧Frame）<br>网络层：负责数据包从源到宿的传递和网际互连（包PackeT）<br>传输层：提供端到端的可靠报文传递和错误恢复（段Segment）<br>会话层：建立、管理和终止会话（会话协议数据单元SPDU）<br>表示层：对数据进行翻译、加密和压缩（表示协议数据单元PPDU）<br>应用层：允许访问OSI环境的手段（应用协议数据单元APDU）</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/计算机网络/" rel="tag">#计算机网络</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/01/12/unrequited-love /" rel="next" title="暗恋女神的那些日子">
+                <i class="fa fa-chevron-left"></i> 暗恋女神的那些日子
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/02/02/IP地址的分类/" rel="prev" title="IP地址的分类">
+                IP地址的分类 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -286,8 +413,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar.png"
@@ -357,6 +493,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -460,6 +607,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 

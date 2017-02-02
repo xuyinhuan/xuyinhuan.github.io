@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="计算机网络," />
 
 
 
@@ -84,22 +84,16 @@
 
 
 
-<meta name="description" content="你好呀，我是 Yinhuan。一个有代码洁癖的 Android 开发者。
-现在的坐标是广州的郊区，毕业后会留在广州工作生活，或者去深圳。
-最近在冲刺复习的同时，也在整理自己在大学期间写的作品。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="about">
-<meta property="og:url" content="http://yoursite.com/about/index.html">
+<meta name="description" content="当DNS客户机需要在程序中使用名称时，它会查询DNS服务器来解析该名称。客户机发送的每条查询信息包括三条信息：包括：指定的DNS域名，指定的查询类型，DNS域名的指定类别。基于UDP服务，端口53. 该应用一般不直接为用户使用，而是为其他应用服务，如HTTP，SMTP等在其中需要完成主机名到IP地址的转换。面向连接和非面向连接的服务的特点是什么？面向连接的服务，通信双方在进行通信之前，要先在双方建">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DNS域名系统，简单描述其工作原理">
+<meta property="og:url" content="http://yoursite.com/2017/02/02/DNS域名系统，简单描述其工作原理/index.html">
 <meta property="og:site_name" content="Yinhuan Blog">
-<meta property="og:description" content="你好呀，我是 Yinhuan。一个有代码洁癖的 Android 开发者。
-现在的坐标是广州的郊区，毕业后会留在广州工作生活，或者去深圳。
-最近在冲刺复习的同时，也在整理自己在大学期间写的作品。">
-<meta property="og:updated_time" content="2017-01-13T11:17:24.461Z">
+<meta property="og:description" content="当DNS客户机需要在程序中使用名称时，它会查询DNS服务器来解析该名称。客户机发送的每条查询信息包括三条信息：包括：指定的DNS域名，指定的查询类型，DNS域名的指定类别。基于UDP服务，端口53. 该应用一般不直接为用户使用，而是为其他应用服务，如HTTP，SMTP等在其中需要完成主机名到IP地址的转换。面向连接和非面向连接的服务的特点是什么？面向连接的服务，通信双方在进行通信之前，要先在双方建">
+<meta property="og:updated_time" content="2017-02-02T05:25:27.381Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="about">
-<meta name="twitter:description" content="你好呀，我是 Yinhuan。一个有代码洁癖的 Android 开发者。
-现在的坐标是广州的郊区，毕业后会留在广州工作生活，或者去深圳。
-最近在冲刺复习的同时，也在整理自己在大学期间写的作品。">
+<meta name="twitter:title" content="DNS域名系统，简单描述其工作原理">
+<meta name="twitter:description" content="当DNS客户机需要在程序中使用名称时，它会查询DNS服务器来解析该名称。客户机发送的每条查询信息包括三条信息：包括：指定的DNS域名，指定的查询类型，DNS域名的指定类别。基于UDP服务，端口53. 该应用一般不直接为用户使用，而是为其他应用服务，如HTTP，SMTP等在其中需要完成主机名到IP地址的转换。面向连接和非面向连接的服务的特点是什么？面向连接的服务，通信双方在进行通信之前，要先在双方建">
 
 
 
@@ -120,15 +114,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/about/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/02/02/DNS域名系统，简单描述其工作原理/"/>
 
-  <title>
-  
-
-  
-    about | Yinhuan Blog
-  
-</title>
+  <title> DNS域名系统，简单描述其工作原理 | Yinhuan Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -149,7 +137,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -249,12 +237,151 @@
 
   <div id="posts" class="posts-expand">
     
-    
-      <p>你好呀，我是 Yinhuan。一个有代码洁癖的 Android 开发者。</p>
-<p>现在的坐标是广州的郊区，毕业后会留在广州工作生活，或者去深圳。</p>
-<p>最近在冲刺复习的同时，也在整理自己在大学期间写的作品。</p>
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                DNS域名系统，简单描述其工作原理
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-02-02T13:21:19+08:00" content="2017-02-02">
+              2017-02-02
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/计算机网络/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机网络</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/02/02/DNS域名系统，简单描述其工作原理/" class="leancloud_visitors" data-flag-title="DNS域名系统，简单描述其工作原理">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>当DNS客户机需要在程序中使用名称时，它会查询DNS服务器来解析该名称。客户机发送的每条查询信息包括三条信息：包括：指定的DNS域名，指定的查询类型，DNS域名的指定类别。基于UDP服务，端口53. 该应用一般不直接为用户使用，而是为其他应用服务，如HTTP，SMTP等在其中需要完成主机名到IP地址的转换。<br>面向连接和非面向连接的服务的特点是什么？<br>面向连接的服务，通信双方在进行通信之前，要先在双方建立起一个完整的可以彼此沟通的通道，在通信过程中，整个连接的情况一直可以被实时地监控和管理。<br>非面向连接的服务，不需要预先建立一个联络两个通信节点的连接，需要通信的时候，发送节点就可以往网络上发送信息，让信息自主地在网络上去传，一般在传输的过程中不再加以监控。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/计算机网络/" rel="tag">#计算机网络</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/02/02/TCP和UDP的区别？/" rel="next" title="TCP和UDP的区别？">
+                <i class="fa fa-chevron-left"></i> TCP和UDP的区别？
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/02/02/TCP的三次握手过程？为什么会采用三次握手，若采用二次握手可以吗？/" rel="prev" title="TCP的三次握手过程？为什么会采用三次握手，若采用二次握手可以吗？">
+                TCP的三次握手过程？为什么会采用三次握手，若采用二次握手可以吗？ <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -286,8 +413,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar.png"
@@ -357,6 +493,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -460,6 +607,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
