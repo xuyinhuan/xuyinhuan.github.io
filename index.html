@@ -255,6 +255,138 @@
             
               
                 
+                <a class="post-title-link" href="/2017/02/04/踩过的坑/" itemprop="url">
+                  踩过的坑
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-02-04T10:10:16+08:00" content="2017-02-04">
+              2017-02-04
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android开发/" itemprop="url" rel="index">
+                    <span itemprop="name">Android开发</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/02/04/踩过的坑/" class="leancloud_visitors" data-flag-title="踩过的坑">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="实现夜间模式踩的坑"><a href="#实现夜间模式踩的坑" class="headerlink" title="实现夜间模式踩的坑"></a><strong>实现夜间模式踩的坑</strong></h2><p>在 styles.xml 定义主题的时候，比如我想要定义一个夜间模式的主题。如果是写成如下这样，是一个很不好的习惯：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;!--夜间主题--&gt;</div><div class="line">&lt;style name=&quot;NightTheme&quot;  parent=&quot;Theme.AppCompat.Light.NoActionBar&quot;&gt;</div><div class="line">    &lt;item name=&quot;colorPrimary&quot;&gt;#3F3F3F&lt;/item&gt;</div><div class="line">    &lt;item name=&quot;colorPrimaryDark&quot;&gt;#3A3A3A&lt;/item&gt;</div><div class="line">    &lt;item name=&quot;colorAccent&quot;&gt;#868686&lt;/item&gt;</div><div class="line">    &lt;item name=&quot;nightBackground&quot;&gt;#3F3F3F&lt;/item&gt;</div><div class="line">    &lt;item name=&quot;nightTextColor&quot;&gt;#8A9599&lt;/item&gt;</div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure>
+<p>我实现夜间模式的思路是 setTheme，然后获取当前主题的属性值，遍历元素，通过 setBackgroundResource 等 set 方法将资源 id 设置进去，这样避免了 recreate 的闪烁，虽然代码比较长，但是代码思路很清晰。</p>
+<p>好，那么怎样获取当前主题的属性值？在 Java 代码中，获取这个主题的属性值时，可以采用如下方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">TypedValue background = new TypedValue();</div><div class="line">TypedValue textColor = new TypedValue();</div><div class="line">Resources.Theme theme = getTheme();</div><div class="line">//获取当前主题的背景和字体颜色属性值</div><div class="line">theme.resolveAttribute(R.attr.nightBackground,background,true);</div><div class="line">theme.resolveAttribute(R.attr.nightTextColor,textColor,true);</div><div class="line"></div><div class="line">if (background != null &amp;&amp; textColor != null)&#123;</div><div class="line">    LogUtil.d(&quot;MainAct&quot;,&quot;background.resourceId = &quot;+background.resourceId);</div><div class="line">    LogUtil.d(&quot;MainAct&quot;,&quot;textColor.resourceId = &quot;+textColor.resourceId);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>但是此时是获取不到的，background.resourceId 是一直为 0 的。我很纳闷，我的代码并没有问题，检查了一遍又一遍，我回看日间模式主题是这样写的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;style name=&quot;DayTheme&quot; parent=&quot;Theme.AppCompat.Light.NoActionBar&quot;&gt;</div><div class="line">    &lt;item name=&quot;colorPrimary&quot;&gt;@color/colorPrimary&lt;/item&gt;</div><div class="line">    &lt;item name=&quot;colorPrimaryDark&quot;&gt;@color/colorPrimaryDark&lt;/item&gt;</div><div class="line">    &lt;item name=&quot;colorAccent&quot;&gt;@color/colorAccent&lt;/item&gt;</div><div class="line">    &lt;item name=&quot;nightBackground&quot;&gt;@color/colorWhite&lt;/item&gt;</div><div class="line">    &lt;item name=&quot;nightTextColor&quot;&gt;@color/text_black_dark&lt;/item&gt;</div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure>
+<p>我发现了我定义主题时的方式，因为日间模式主题我是直接 copy 默认的 AppTheme 的，所以定义的比较规范。<br>然后我在调试的时候，发现切换到日间模式主题，background.resourceId 是可以获取到的，那么表明，我获取主题属性值的方法并没有错误，只能是夜间模式的定义出现问题，抱着尝试一下的心态，我把颜色值全部抽取到color.xml文件，规范了写法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;!--夜间主题--&gt;</div><div class="line">&lt;style name=&quot;NightTheme&quot;  parent=&quot;Theme.AppCompat.Light.NoActionBar&quot;&gt;</div><div class="line">    &lt;item name=&quot;colorPrimary&quot;&gt;@color/night_colorPrimary&lt;/item&gt;</div><div class="line">    &lt;item name=&quot;colorPrimaryDark&quot;&gt;@color/night_colorPrimaryDark&lt;/item&gt;</div><div class="line">    &lt;item name=&quot;colorAccent&quot;&gt;@color/night_colorAccent&lt;/item&gt;</div><div class="line">    &lt;item name=&quot;nightBackground&quot;&gt;@color/night_Background&lt;/item&gt;</div><div class="line">    &lt;item name=&quot;nightTextColor&quot;&gt;@color/night_TextColor&lt;/item&gt;</div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure>
+<p>运行发现 background.resourceId 不为 0 了。突破，实现了知乎的不重启 Activity，不闪烁的夜间模式功能。</p>
+<p>总结：不要偷懒，欲速则不达。养成好的习惯，把颜色值都放在color文件里</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/02/02/了解交换机、路由器、网关的概念，并知道各自的用途/" itemprop="url">
                   了解交换机、路由器、网关的概念，并知道各自的用途
                 </a>
@@ -1332,128 +1464,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/02/02/IP地址的分类/" itemprop="url">
-                  IP地址的分类
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-02-02T13:14:19+08:00" content="2017-02-02">
-              2017-02-02
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/计算机网络/" itemprop="url" rel="index">
-                    <span itemprop="name">计算机网络</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-             <span id="/2017/02/02/IP地址的分类/" class="leancloud_visitors" data-flag-title="IP地址的分类">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>A类地址：以0开头， 第一个字节范围：0~126（1.0.0.0 - 126.255.255.255）；<br>B类地址：以10开头， 第一个字节范围：128~191（128.0.0.0 - 191.255.255.255）；<br>C类地址：以110开头， 第一个字节范围：192~223（192.0.0.0 - 223.255.255.255）；<br>10.0.0.0—10.255.255.255， 172.16.0.0—172.31.255.255， 192.168.0.0—192.168.255.255。（Internet上保留地址用于内部）<br>IP地址与子网掩码相与得到网络号</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1499,7 +1509,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-count">13</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1507,7 +1517,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1516,7 +1526,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
